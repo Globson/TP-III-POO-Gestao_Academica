@@ -14,6 +14,7 @@ private:
   string Endereco;
 public:
   Aluno(string Nome,string DataNasc,int Num); //Matriculas serao incrementadas//
+  virtual ~Aluno();
   void Set_NomePais(string nomepai,string nomemae);
   void Set_Endereco(string endereco);
   int GetMatricula();

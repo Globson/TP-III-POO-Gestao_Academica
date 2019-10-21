@@ -11,6 +11,7 @@ private:
   double SalarioPHora;
 public:
   Professor(string Nome,string Area);
+  virtual ~Professor();
   void Set_Endereco(string endereco);
   bool Set_Salario(double Salario);
   string Get_Nome();
