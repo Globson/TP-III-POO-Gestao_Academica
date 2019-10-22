@@ -10,6 +10,7 @@ void Turma::AdicionaAluno(Aluno aluno){
   Alunos.push_back(aluno);
 }
 void Turma::ImprimeAlunos(){
+  if(Alunos.size()>0){
   cout<<"--Inicio de lista de alunos--"<<endl;
   for(unsigned int k=0;k<Alunos.size();k++){
       cout<<"--------------------Aluno:"<<k+1<<"------------------------"<<endl;
@@ -21,7 +22,10 @@ void Turma::ImprimeAlunos(){
       cout<<"Endereco: "<<Alunos.at(k).Get_Endereco()<<endl;
       cout<<"-------------------------------------------------------"<<endl;
   }
-  cout<<"--Fim da lista de alunos--"<<endl;
+  cout<<"--Fim da lista de alunos--"<<endl;}
+  else{
+    cout<<"Nao ha alunos cadastrados na turma!"<<endl;
+  }
 
 }
 void Turma::ImprimeProfessor(){
@@ -33,4 +37,29 @@ int Turma::GetAno(){
 }
 int Turma::GetCodigo(){
   return Codigo;
+}
+void Turma::AdicionaNotas(){
+  int trava;
+  double notatemp;
+  Notas *NotaTemp;
+  for(unsigned int i=0;i<Alunos.size();i++){
+    NotaTemp = new Notas();
+    while(true){
+      trava=0;
+      cout<<"Entre com a nota do aluno "<<i+1<<endl;
+      cin>>notatemp;
+      NotaTemp->AdicionaNota(notatemp);
+      while(trava!=1 && trava!=2){
+        cout<<"Deseja entrar com mais notas desse mesmo aluno?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";
+        cin>>trava;
+        if(trava!=1 && trava!=2){
+          cout<<"Entrada invalida!"<<endl;
+        }
+      }
+      if(trava==1){
+        break;
+      }
+    }
+    NotasAlunos.push_back(*NotaTemp);
+  }
 }
