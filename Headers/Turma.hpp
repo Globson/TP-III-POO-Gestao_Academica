@@ -9,14 +9,14 @@ using namespace std;
 
 class Turma{
 private:
-  //std::vector<Professor> ProfessorResponsavel;
-  Professor* ProfessorResponsavel;
+  std::vector<Professor> ProfessorResponsavel;
+  //Professor* ProfessorResponsavel;
   std::vector<Aluno> Alunos;
   int Ano;
   int Codigo;
 public:
   Turma(Professor profResp, int Codigo, int Ano);
-  virtual ~Turma();
+  //virtual ~Turma();
   void AdicionaAluno(Aluno aluno);
   void ImprimeAlunos();
   void ImprimeProfessor();

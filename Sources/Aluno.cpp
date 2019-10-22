@@ -1,9 +1,9 @@
 #include "../Headers/Aluno.hpp"
 
-Aluno::Aluno(string Nome,string DataNasc,int Num){
+Aluno::Aluno(string Nome,string DataNasc,int NumMatricula){
   this->Nome = Nome;
   this->DataNasc = DataNasc;
-  this->N_Matricula = Num;
+  this->N_Matricula = NumMatricula;
 }
 void Aluno::Set_NomePais(string nomepai,string nomemae){
   this->NomePai = nomepai;

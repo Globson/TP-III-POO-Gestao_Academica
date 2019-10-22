@@ -10,8 +10,9 @@ private:
   string Area;
   double SalarioPHora;
 public:
-  Professor(string Nome,string Area);
-  virtual ~Professor();
+  Professor(string Nome); //Vamos ter q mudar
+  //virtual ~Professor();
+  void Set_Area(string area);
   void Set_Endereco(string endereco);
   bool Set_Salario(double Salario);
   string Get_Nome();

@@ -1,7 +1,9 @@
 #include "../Headers/Professor.hpp"
-Professor::Professor(string Nome,string Area){
+Professor::Professor(string Nome){
   this->Nome = Nome;
-  this->Area = Area;
+}
+void Professor::Set_Area(string area){
+  this->Area = area;
 }
 void Professor::Set_Endereco(string endereco){
   this->Endereco = endereco;
