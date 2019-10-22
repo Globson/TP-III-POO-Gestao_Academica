@@ -1,7 +1,8 @@
 #include "../Headers/Turma.hpp"
 
 Turma::Turma(Professor profResp, int Codigo, int Ano){
-  ProfessorResponsavel.push_back(profResp);
+  //ProfessorResponsavel.push_back(profResp);
+  ProfessorResponsavel = &profResp;
   this->Codigo = Codigo;
   this->Ano = Ano;
 }
@@ -24,7 +25,8 @@ void Turma::ImprimeAlunos(){
 
 }
 void Turma::ImprimeProfessor(){
-  cout<<"O professor responsvel é: "<<ProfessorResponsavel.at(ProfessorResponsavel.size()).Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel.at(ProfessorResponsavel.size()).Get_Area()<<endl;
+  //cout<<"O professor responsvel é: "<<ProfessorResponsavel.at(ProfessorResponsavel.size()).Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel.at(ProfessorResponsavel.size()).Get_Area()<<endl;
+  cout<<"O professor responsvel é: "<<ProfessorResponsavel->Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel->Get_Area()<<endl;
 }
 int Turma::GetAno(){
   return Ano;
