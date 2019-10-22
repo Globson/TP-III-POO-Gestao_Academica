@@ -13,8 +13,10 @@ private:
   string DataNasc;
   string Endereco;
 public:
-  Aluno(string Nome,string DataNasc,int NumMatricula); //Matriculas serao incrementadas//
+  Aluno(string Nome); //Matriculas serao incrementadas//
   //virtual ~Aluno();
+  void Set_DataNasc(string DataNasc);
+  void Set_NumMatricula(int NumMatricula);
   void Set_NomePais(string nomepai,string nomemae);
   void Set_Endereco(string endereco);
   int GetMatricula();

@@ -1,8 +1,12 @@
 #include "../Headers/Aluno.hpp"
 
-Aluno::Aluno(string Nome,string DataNasc,int NumMatricula){
+Aluno::Aluno(string Nome){
   this->Nome = Nome;
+}
+void Aluno::Set_DataNasc(string DataNasc){
   this->DataNasc = DataNasc;
+}
+void Aluno::Set_NumMatricula(int NumMatricula){
   this->N_Matricula = NumMatricula;
 }
 void Aluno::Set_NomePais(string nomepai,string nomemae){
