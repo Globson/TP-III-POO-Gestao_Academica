@@ -25,6 +25,7 @@ public:
   void ImprimeProfessor();
   int GetAno();
   int GetCodigo();
+  void Imprime_Boletim(int indexAluno);
 };
 
 #endif

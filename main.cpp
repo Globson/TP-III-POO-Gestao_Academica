@@ -20,7 +20,10 @@ int main(int argc, char const *argv[]) {
   Turma Turma1(*ProfAux,4,1432);
   Turma1.AdicionaAluno(Globson);
   Turma1.AdicionaAluno(Saulim);
+  Turma1.AdicionaNotas();
   Turma1.ImprimeAlunos();
   Turma1.ImprimeProfessor();
+  Turma1.Imprime_Boletim(0);
+  Turma1.Imprime_Boletim(1);
   return 0;
 }

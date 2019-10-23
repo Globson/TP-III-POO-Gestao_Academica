@@ -13,7 +13,7 @@ void Turma::ImprimeAlunos(){
   if(Alunos.size()>0){
   cout<<"--Inicio de lista de alunos--"<<endl;
   for(unsigned int k=0;k<Alunos.size();k++){
-      cout<<"--------------------Aluno:"<<k+1<<"------------------------"<<endl;
+      cout<<"--------------------Aluno:"<<k+1<<"----------------------------"<<endl;
       cout<<"Nome: "<<Alunos.at(k).Get_Nome()<<endl;
       cout<<"Matricula: "<<Alunos.at(k).GetMatricula()<<endl;
       cout<<"Data Nascimento: "<<Alunos.at(k).Get_DataNasc()<<endl;
@@ -46,7 +46,7 @@ void Turma::AdicionaNotas(){
     NotaTemp = new Notas();
     while(true){
       trava=0;
-      cout<<"Entre com a nota do aluno "<<i+1<<endl;
+      cout<<"Entre com a nota do aluno de matricula "<<Alunos.at(i).GetMatricula()<< ": ";
       cin>>notatemp;
       NotaTemp->AdicionaNota(notatemp);
       while(trava!=1 && trava!=2){
@@ -56,10 +56,20 @@ void Turma::AdicionaNotas(){
           cout<<"Entrada invalida!"<<endl;
         }
       }
-      if(trava==1){
+      if(trava==2){
         break;
       }
     }
     NotasAlunos.push_back(*NotaTemp);
+  }
+}
+void Turma::Imprime_Boletim(int indexAluno){
+  unsigned int index = indexAluno;
+  if(index>=0 && index<=NotasAlunos.size()){
+    cout<<"\t---Boletim do aluno---"<<endl;
+    cout<<"Nome: "<<Alunos.at(index).Get_Nome()<<endl;
+    cout<<"Matricula: "<<Alunos.at(index).GetMatricula()<<endl;
+    NotasAlunos.at(index).ListaNotas();
+    NotasAlunos.at(index).ImprimeMediaNotas();
   }
 }

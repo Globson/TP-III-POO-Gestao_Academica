@@ -1,0 +1,1 @@
+#include "../Headers/Escola.hpp"

@@ -14,7 +14,7 @@ public:
   void AdicionaNota(double Nota);
   void ModificaNota(double NovaNota,int indexNota);
   void ListaNotas();
-
+  void ImprimeMediaNotas();
 };
 
 #endif
