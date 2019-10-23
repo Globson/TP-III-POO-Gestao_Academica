@@ -1,10 +1,11 @@
 #include "Headers/Professor.hpp"
 #include "Headers/Aluno.hpp"
 #include "Headers/Turma.hpp"
+#include "Headers/Escola.hpp"
 
 int main(int argc, char const *argv[]) {
 
-  Professor *ProfAux = new Professor("Jose");
+  /*Professor *ProfAux = new Professor("Jose");
   ProfAux->Set_Area("Exatas");
   ProfAux->Set_Salario(0.1);
   Aluno Saulim("Saulim");
@@ -24,6 +25,18 @@ int main(int argc, char const *argv[]) {
   Turma1.ImprimeAlunos();
   Turma1.ImprimeProfessor();
   Turma1.Imprime_Boletim(0);
-  Turma1.Imprime_Boletim(1);
+  Turma1.Imprime_Boletim(1);*/
+
+  Escola Esc;
+  Esc.AdicionaProfessor();
+  Esc.AdicionaProfessor();
+  Esc.AdicionaProfessor();
+  Esc.CriaTurma();
+  Esc.CriaTurma();
+  Esc.ImprimeTurmas();
+  //Esc.ImprimeProfessores();
+  /*Esc.AdicionaAluno();
+  Esc.AdicionaAluno();
+  Esc.ImprimeAlunos();*/
   return 0;
 }

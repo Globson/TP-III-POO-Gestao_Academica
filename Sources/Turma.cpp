@@ -32,6 +32,9 @@ void Turma::ImprimeProfessor(){
   cout<<"O professor responsvel é: "<<ProfessorResponsavel.at(0).Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel.at(0).Get_Area()<<endl;
   //cout<<"O professor responsvel é: "<<ProfessorResponsavel->Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel->Get_Area()<<endl;
 }
+string Turma::GetProfessor(){
+  return ProfessorResponsavel.at(0).Get_Nome();
+}
 int Turma::GetAno(){
   return Ano;
 }
