@@ -11,8 +11,7 @@ void Escola::AdicionaProfessor(){
 
   cout<<"Entre com o salario do professor:";
   cin>>salario;
-  cin.ignore();
-
+  cin.ignore(1);
   cout<<"Entre com o endereco do professor:";
   getline(cin,Endereco);
 
@@ -68,8 +67,55 @@ this->CodigoTurma++;
 Turmas.push_back(TurmaAux);
 }
 
+
+void Escola::AdicionaAlunoEmTurma(){
+  int Matricula,indexturma;
+  bool Verifica = false;
+  if(Turmas.size()>0){
+    for(unsigned int k=0;k<Turmas.size();k++){
+      cout<<"-----Turma "<<k<<"-----"<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"----------------"<<endl;
+    }
+  cout<<"Entre com o numero da turma que deseja adicionar alunos:";
+  cin>>indexturma;
+  }
+  else{
+    cout<<"Erro! Crie pelo menos uma turma!"<<endl;
+    return;
+  }
+  if(Alunos.size()>0){
+    for(unsigned int i=0;i<Alunos.size();i++){
+      cout<<"----------------Aluno---------------"<<endl;
+      cout<<"Nome:"<<Alunos.at(i).Get_Nome()<<endl;
+      cout<<"Matricula: "<<Alunos.at(i).GetMatricula()<<endl;
+      cout<<"Endereco: "<<Alunos.at(i).Get_Endereco()<<endl;
+      cout<<"------------------------------------"<<endl;
+    }
+  cout<<"Digite a matricula do aluno que deseja adicionar:";
+  cin>>Matricula;
+  for(unsigned int j=0;j<Alunos.size();j++){
+    if(Alunos.at(j).GetMatricula() == Matricula){
+      Turmas.at(indexturma).AdicionaAluno(Alunos.at(j));
+      Verifica = true;
+    }
+  }
+  if(!Verifica){
+    cout<<"Aluno nao encontrado!"<<endl;
+  }
+  }
+  else{
+    cout<<"Erro! Nenhum aluno foi cadastrado!"<<endl;
+    return;
+  }
+}
+
+
 void Escola::AdicionaNota(){}
 void Escola::ImprimeBoletim(){}
+
 void Escola::ImprimeProfessores(){
   for(unsigned int k=0;k<Professores.size();k++){
     cout<<"Nome: "<<Professores.at(k).Get_Nome()<<endl;
@@ -78,6 +124,7 @@ void Escola::ImprimeProfessores(){
     cout<<"Endereco: "<<Professores.at(k).Get_Endereco()<<endl;
   }
 }
+
 void Escola::ImprimeAlunos(){
   for(unsigned int k=0;k<Alunos.size();k++){
     cout<<"Nome:"<<Alunos.at(k).Get_Nome()<<endl;
@@ -88,6 +135,7 @@ void Escola::ImprimeAlunos(){
     cout<<"Endereco: "<<Alunos.at(k).Get_Endereco()<<endl;
   }
 }
+
 void Escola::ImprimeTurmas(){
   for(unsigned int k=0;k<Turmas.size();k++){
     cout<<"-----Turma "<<k<<"-----"<<endl;

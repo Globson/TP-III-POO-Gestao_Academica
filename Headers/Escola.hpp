@@ -20,6 +20,7 @@ public:  //Nenhuma deve ter parametro, para poder ser totalmente interativo apar
   void AdicionaProfessor();
   void AdicionaAluno();
   void CriaTurma();
+  void AdicionaAlunoEmTurma();
   void AdicionaNota();
   void ImprimeBoletim();
   void ImprimeProfessores();

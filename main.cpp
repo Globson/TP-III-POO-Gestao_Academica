@@ -33,10 +33,9 @@ int main(int argc, char const *argv[]) {
   Esc.AdicionaProfessor();
   Esc.CriaTurma();
   Esc.CriaTurma();
-  Esc.ImprimeTurmas();
-  //Esc.ImprimeProfessores();
-  /*Esc.AdicionaAluno();
+  cin.ignore(1);
   Esc.AdicionaAluno();
-  Esc.ImprimeAlunos();*/
+  Esc.AdicionaAluno();
+  Esc.AdicionaAlunoEmTurma();
   return 0;
 }
