@@ -41,5 +41,11 @@ int main(int argc, char const *argv[]) {
   Esc.ImprimeAlunosDeTurma();
   Esc.AdicionaNota();
   Esc.ImprimeBoletim();
+
+  
+  Esc.ModificaProfessor();
+  Esc.ModificaAluno();
+  Esc.ImprimeAlunosDeTurma();
+  Esc.CriaTurma();
   return 0;
 }

@@ -3,6 +3,9 @@
 Aluno::Aluno(string Nome){
   this->Nome = Nome;
 }
+void Aluno::ModificaNome(string Nome){
+  this->Nome = Nome;
+}
 void Aluno::Set_DataNasc(string DataNasc){
   this->DataNasc = DataNasc;
 }

@@ -15,6 +15,7 @@ public:
   void Set_Area(string area);
   void Set_Endereco(string endereco);
   bool Set_Salario(double Salario);
+  void ModificaNome(string Nome);
   string Get_Nome();
   string Get_Endereco();
   string Get_Area();

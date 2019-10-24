@@ -19,6 +19,7 @@ public:
   void Set_NumMatricula(int NumMatricula);
   void Set_NomePais(string nomepai,string nomemae);
   void Set_Endereco(string endereco);
+  void ModificaNome(string Nome);
   int GetMatricula();
   string Get_NomeMae();
   string Get_NomePai();

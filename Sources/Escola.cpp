@@ -271,3 +271,94 @@ void Escola::ImprimeAlunosDeTurma(){
     return;
   }
 }
+
+void Escola::ModificaProfessor(){
+  int indexprof,SizeProfs;
+  string Nome,Area,Endereco;
+  double salario;
+  if(Professores.size()>0){
+    cout<<"Escolha um professor para modificar:"<<endl;
+    for(unsigned int k=0;k<Professores.size();k++){
+      cout<<"Professor numero "<<k+1<<": "<<endl;
+      cout<<"Nome: "<<Professores.at(k).Get_Nome()<<endl;
+      cout<<"Area: "<<Professores.at(k).Get_Area()<<endl;
+      cout<<"Salario: "<<Professores.at(k).Get_Salario()<<endl;
+    }
+    cout<<"Entre com o numero do professor escolhido:";
+    cin>>indexprof;
+    SizeProfs = Professores.size();
+    if((indexprof-1)<0 || indexprof>SizeProfs){
+      cout<<"Erro! Professor nao existe!"<<endl;
+      return;
+    }
+  }
+    else{
+      cout<<"Erro! Cadastre pelo menos um professor!";
+      return;
+    }
+    cin.ignore(1);
+    cout<<"Entre com o nome do professor:";
+    getline(cin,Nome);
+    cout<<"Entre com a area do professor:";
+    getline(cin,Area);
+    cout<<"Entre com o salario do professor:";
+    cin>>salario;
+    cin.ignore(1);
+    cout<<"Entre com o endereco do professor:";
+    getline(cin,Endereco);
+    Professores.at(indexprof-1).ModificaNome(Nome);
+    Professores.at(indexprof-1).Set_Area(Area);
+    Professores.at(indexprof-1).Set_Endereco(Endereco);
+    Professores.at(indexprof-1).Set_Salario(salario);
+    //return true;
+}
+
+
+void Escola::ModificaAluno(){
+  int Matricula;
+  bool Verifica = false;
+  string Nome,NomePai,NomeMae,DataNasc,Endereco;
+  if(Alunos.size()>0){
+    for(unsigned int i=0;i<Alunos.size();i++){
+      cout<<"----------------Aluno---------------"<<endl;
+      cout<<"Nome:"<<Alunos.at(i).Get_Nome()<<endl;
+      cout<<"Matricula: "<<Alunos.at(i).GetMatricula()<<endl;
+      cout<<"Endereco: "<<Alunos.at(i).Get_Endereco()<<endl;
+      cout<<"------------------------------------"<<endl;
+    }
+    cout<<"Digite a matricula do aluno que deseja modificar:";
+    cin>>Matricula;
+    for(unsigned int j=0;j<Alunos.size();j++){
+      if(Alunos.at(j).GetMatricula() == Matricula){
+        cin.ignore(1);
+        cout<<"Entre com o nome do aluno:";
+        getline(cin,Nome);
+        cout<<"Entre com o nome do pai do aluno:";
+        getline(cin,NomePai);
+        cout<<"Entre com o nome da mae do aluno:";
+        getline(cin,NomeMae);
+        cout<<"Entre com a data de nascimento do aluno:";
+        getline(cin,DataNasc);
+        cout<<"Entre com o endereco do aluno:";
+        getline(cin,Endereco);
+
+        Alunos.at(j).ModificaNome(Nome);
+        Alunos.at(j).Set_NomePais(NomePai,NomeMae);
+        Alunos.at(j).Set_DataNasc(DataNasc);
+        Alunos.at(j).Set_Endereco(Endereco);
+
+
+        Verifica = true;
+        cout<<"Aluno modificado com sucesso!"<<endl;
+      }
+    }
+    if(!Verifica){
+      cout<<"Erro! Aluno nao encontrado!"<<endl;
+      return;
+    }
+  }
+  else{
+    cout<<"Erro! Nenhum aluno foi cadastrado!"<<endl;
+    return;
+  }
+}

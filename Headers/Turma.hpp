@@ -19,7 +19,6 @@ private:
   friend class Escola;
 public:
   Turma(Professor* profResp, int Codigo, int Ano);
-  //virtual ~Turma();
   void AdicionaAluno(Aluno* aluno);
   void AdicionaNotas();
   void ImprimeAlunos();

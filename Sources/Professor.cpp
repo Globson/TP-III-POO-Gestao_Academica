@@ -2,6 +2,9 @@
 Professor::Professor(string Nome){
   this->Nome = Nome;
 }
+void Professor::ModificaNome(string Nome){
+  this->Nome = Nome;
+}
 void Professor::Set_Area(string area){
   this->Area = area;
 }
