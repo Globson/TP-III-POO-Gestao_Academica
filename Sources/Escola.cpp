@@ -45,7 +45,7 @@ void Escola::AdicionaAluno(){
 }
 
 void Escola::CriaTurma(){
-  int indexprof,ano;
+  int indexprof,ano,SizeProfs;
   if(Professores.size()>0){
     cout<<"Escolha um professor abaixo para ser responsavel pela turma:"<<endl;
   for(unsigned int k=0;k<Professores.size();k++){
@@ -56,6 +56,11 @@ void Escola::CriaTurma(){
   }
   cout<<"Entre com o numero do professor escolhido:";
   cin>>indexprof;
+  SizeProfs = Professores.size();
+  if((indexprof-1)<0 || indexprof>SizeProfs){
+    cout<<"Erro! Professor nao existe!"<<endl;
+    return;
+  }
 }else{
   cout<<"Erro! Cadastre pelo menos um professor!";
   return;
@@ -69,18 +74,30 @@ Turmas.push_back(TurmaAux);
 
 
 void Escola::AdicionaAlunoEmTurma(){
-  int Matricula,indexturma;
-  bool Verifica = false;
+  int Matricula,Codigoturma,indexturma;
+  bool Verifica = false,Verifica2 = false;
   if(Turmas.size()>0){
     for(unsigned int k=0;k<Turmas.size();k++){
-      cout<<"-----Turma "<<k<<"-----"<<endl;
+      cout<<"-----Turma-----"<<endl;
       cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
       cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
       cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
-  cout<<"Entre com o numero da turma que deseja adicionar alunos:";
-  cin>>indexturma;
+  cout<<"Entre com o codigo da turma que deseja adicionar alunos:";
+  cin>>Codigoturma;
+  for(unsigned int x=0;x<Turmas.size();x++){
+    if(Codigoturma == Turmas.at(x).GetCodigo()){
+      indexturma = x;
+      Verifica2 = true;
+      cout<<"Turma selecionada com sucesso!"<<endl;
+    }
+  }
+  if(!Verifica2){
+    cout<<"Erro! Turma nao encontrada!"<<endl;
+    return;
+  }
+
   }
   else{
     cout<<"Erro! Crie pelo menos uma turma!"<<endl;
@@ -94,17 +111,18 @@ void Escola::AdicionaAlunoEmTurma(){
       cout<<"Endereco: "<<Alunos.at(i).Get_Endereco()<<endl;
       cout<<"------------------------------------"<<endl;
     }
-  cout<<"Digite a matricula do aluno que deseja adicionar:";
-  cin>>Matricula;
-  for(unsigned int j=0;j<Alunos.size();j++){
-    if(Alunos.at(j).GetMatricula() == Matricula){
-      Turmas.at(indexturma).AdicionaAluno(Alunos.at(j));
-      Verifica = true;
+    cout<<"Digite a matricula do aluno que deseja adicionar:";
+    cin>>Matricula;
+    for(unsigned int j=0;j<Alunos.size();j++){
+      if(Alunos.at(j).GetMatricula() == Matricula){
+        Turmas.at(indexturma).AdicionaAluno(Alunos.at(j));
+        Verifica = true;
+        cout<<"Aluno adicionado com sucesso a turma!"<<endl;
+      }
     }
-  }
-  if(!Verifica){
-    cout<<"Aluno nao encontrado!"<<endl;
-  }
+    if(!Verifica){
+      cout<<"Erro!Aluno nao encontrado!"<<endl;
+    }
   }
   else{
     cout<<"Erro! Nenhum aluno foi cadastrado!"<<endl;
