@@ -1,4 +1,8 @@
 #include "../Headers/Escola.hpp"
+Escola::Escola(){
+  this->ContMatricula = 3000; // numero de matricula inicial
+  this->CodigoTurma = 100; //Codigo de turma inicial
+}
 void Escola::AdicionaProfessor(){
   string Nome,Area,Endereco;
   double salario;
@@ -187,8 +191,8 @@ void Escola::ImprimeBoletim(){
     Turmas.at(indexturma).ImprimeAlunos();
     cout<<"Entre com a matricula do aluno que quer imprimir o boletim:";
     cin>>MatriculaAluno;
-    for(unsigned int x=0;x<Turmas.at(indexturma).SizeAlunos();x++){
-      if(MatriculaAluno == Turmas.at(indexturma).MatriculaAlunoAt(x)){
+    for(unsigned int x=0;x<Turmas.at(indexturma).Alunos.size();x++){
+      if(MatriculaAluno == Turmas.at(indexturma).Alunos.at(x).GetMatricula()){
         Verifica2 = true;
         indexaluno = x;
       }

@@ -28,6 +28,7 @@ void Notas::ImprimeMediaNotas(){
       tam++;
     }
     double Media = soma/tam;
+    //double Media = soma; // caso nao precise dividir pela quantidade, comentar linha acima e descomentar essa
     if(Media>=60){
       cout<<"Media = "<<Media<<" -> APROVADO!"<<endl;
     }

@@ -11,12 +11,13 @@ using namespace std;
 
 class Escola{
 private:
-  int ContMatricula = 3000; // numero de matricula inicial
-  int CodigoTurma = 100; //Codigo de turma inicial
+  int ContMatricula;
+  int CodigoTurma;
   std::vector<Professor> Professores;
   std::vector<Aluno> Alunos;
   std::vector<Turma> Turmas;
 public:  //Nenhuma deve ter parametro, para poder ser totalmente interativo apartir desse nivel
+  Escola();
   void AdicionaProfessor();
   void AdicionaAluno();
   void CriaTurma();

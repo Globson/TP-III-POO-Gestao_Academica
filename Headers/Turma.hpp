@@ -16,6 +16,7 @@ private:
   std::vector<Notas> NotasAlunos;
   int Ano;
   int Codigo;
+  friend class Escola;
 public:
   Turma(Professor profResp, int Codigo, int Ano);
   //virtual ~Turma();
@@ -25,10 +26,10 @@ public:
   void ImprimeProfessor();
   int GetAno();
   int GetCodigo();
-  int SizeAlunos();
-  int MatriculaAlunoAt(int i);
   string GetProfessor();
   void Imprime_Boletim(int indexAluno);
+  //int SizeAlunos();
+  //int MatriculaAlunoAt(int i);
 };
 
 #endif

@@ -77,10 +77,10 @@ void Turma::Imprime_Boletim(int indexAluno){
   }
 }
 
-int Turma::SizeAlunos(){
+/*int Turma::SizeAlunos(){
   int a = Alunos.size();
   return a;
 }
 int Turma::MatriculaAlunoAt(int i){
   return Alunos.at(i).GetMatricula();
-}
+}*/
