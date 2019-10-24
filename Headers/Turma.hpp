@@ -25,6 +25,8 @@ public:
   void ImprimeProfessor();
   int GetAno();
   int GetCodigo();
+  int SizeAlunos();
+  int MatriculaAlunoAt(int i);
   string GetProfessor();
   void Imprime_Boletim(int indexAluno);
 };

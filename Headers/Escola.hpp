@@ -26,5 +26,6 @@ public:  //Nenhuma deve ter parametro, para poder ser totalmente interativo apar
   void ImprimeProfessores();
   void ImprimeAlunos();
   void ImprimeTurmas();
+  void ImprimeAlunosDeTurma();
 };
 #endif

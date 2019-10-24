@@ -131,8 +131,81 @@ void Escola::AdicionaAlunoEmTurma(){
 }
 
 
-void Escola::AdicionaNota(){}
-void Escola::ImprimeBoletim(){}
+void Escola::AdicionaNota(){
+  int Codigoturma,indexturma;
+  bool Verifica = false;
+  if(Turmas.size()>0){
+    for(unsigned int k=0;k<Turmas.size();k++){
+      cout<<"-----Turma-----"<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"----------------"<<endl;
+    }
+    cout<<"Entre com o codigo da turma que deseja adicionar notas dos alunos:";
+    cin>>Codigoturma;
+    for(unsigned int x=0;x<Turmas.size();x++){
+      if(Codigoturma == Turmas.at(x).GetCodigo()){
+        indexturma = x;
+        Verifica = true;
+        cout<<"Turma selecionada com sucesso!"<<endl;
+      }
+    }
+    if(!Verifica){
+      cout<<"Erro! Turma nao encontrada!"<<endl;
+      return;
+    }
+    Turmas.at(indexturma).AdicionaNotas();
+  }
+}
+
+
+void Escola::ImprimeBoletim(){
+  int Codigoturma,indexturma,indexaluno,MatriculaAluno;
+  bool Verifica = false,Verifica2 = false;
+  if(Turmas.size()>0){
+    for(unsigned int k=0;k<Turmas.size();k++){
+      cout<<"-----Turma-----"<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"----------------"<<endl;
+    }
+    cout<<"Entre com o codigo da turma que deseja imprimir o boletim do aluno:";
+    cin>>Codigoturma;
+    for(unsigned int x=0;x<Turmas.size();x++){
+      if(Codigoturma == Turmas.at(x).GetCodigo()){
+        indexturma = x;
+        Verifica = true;
+        cout<<"Turma selecionada com sucesso!"<<endl;
+      }
+    }
+    if(!Verifica){
+      cout<<"Erro! Turma nao encontrada!"<<endl;
+      return;
+    }
+    Turmas.at(indexturma).ImprimeAlunos();
+    cout<<"Entre com a matricula do aluno que quer imprimir o boletim:";
+    cin>>MatriculaAluno;
+    for(unsigned int x=0;x<Turmas.at(indexturma).SizeAlunos();x++){
+      if(MatriculaAluno == Turmas.at(indexturma).MatriculaAlunoAt(x)){
+        Verifica2 = true;
+        indexaluno = x;
+      }
+    }
+    if(!Verifica2){
+      cout<<"Erro! Aluno nao cadastrado em turma escolhida!"<<endl;
+    }
+    Turmas.at(indexturma).Imprime_Boletim(indexaluno);
+
+  }
+  else{
+    cout<<"Erro! Crie pelo menos uma turma!"<<endl;
+    return;
+  }
+}
+
+
 
 void Escola::ImprimeProfessores(){
   for(unsigned int k=0;k<Professores.size();k++){
@@ -161,5 +234,36 @@ void Escola::ImprimeTurmas(){
     cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
     cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
     cout<<"----------------"<<endl;
+  }
+}
+void Escola::ImprimeAlunosDeTurma(){
+  int Codigoturma,indexturma;
+  bool Verifica = false;
+  if(Turmas.size()>0){
+    for(unsigned int k=0;k<Turmas.size();k++){
+      cout<<"-----Turma-----"<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"----------------"<<endl;
+    }
+    cout<<"Entre com o codigo da turma que deseja imprimir os alunos:";
+    cin>>Codigoturma;
+    for(unsigned int x=0;x<Turmas.size();x++){
+      if(Codigoturma == Turmas.at(x).GetCodigo()){
+        indexturma = x;
+        Verifica = true;
+        cout<<"Turma selecionada com sucesso!"<<endl;
+      }
+    }
+    if(!Verifica){
+      cout<<"Erro! Turma nao encontrada!"<<endl;
+      return;
+    }
+    Turmas.at(indexturma).ImprimeAlunos();
+  }
+  else{
+    cout<<"Erro! Crie pelo menos uma turma!"<<endl;
+    return;
   }
 }

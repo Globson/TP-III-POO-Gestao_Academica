@@ -37,5 +37,9 @@ int main(int argc, char const *argv[]) {
   Esc.AdicionaAluno();
   Esc.AdicionaAluno();
   Esc.AdicionaAlunoEmTurma();
+  Esc.AdicionaAlunoEmTurma();
+  Esc.ImprimeAlunosDeTurma();
+  Esc.AdicionaNota();
+  Esc.ImprimeBoletim();
   return 0;
 }
