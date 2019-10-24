@@ -71,7 +71,7 @@ void Escola::CriaTurma(){
 }
 cout<<"Entre com o ano da turma:";
 cin>>ano;
-Turma TurmaAux(Professores.at(indexprof-1),CodigoTurma,ano);
+Turma TurmaAux(&Professores.at(indexprof-1),CodigoTurma,ano);
 this->CodigoTurma++;
 Turmas.push_back(TurmaAux);
 }
@@ -119,7 +119,7 @@ void Escola::AdicionaAlunoEmTurma(){
     cin>>Matricula;
     for(unsigned int j=0;j<Alunos.size();j++){
       if(Alunos.at(j).GetMatricula() == Matricula){
-        Turmas.at(indexturma).AdicionaAluno(Alunos.at(j));
+        Turmas.at(indexturma).AdicionaAluno(&Alunos.at(j));
         Verifica = true;
         cout<<"Aluno adicionado com sucesso a turma!"<<endl;
       }
@@ -192,7 +192,7 @@ void Escola::ImprimeBoletim(){
     cout<<"Entre com a matricula do aluno que quer imprimir o boletim:";
     cin>>MatriculaAluno;
     for(unsigned int x=0;x<Turmas.at(indexturma).Alunos.size();x++){
-      if(MatriculaAluno == Turmas.at(indexturma).Alunos.at(x).GetMatricula()){
+      if(MatriculaAluno == Turmas.at(indexturma).Alunos.at(x)->GetMatricula()){
         Verifica2 = true;
         indexaluno = x;
       }
