@@ -21,7 +21,7 @@ public:
   Turma(Professor* profResp, int Codigo, int Ano);
   void AdicionaAluno(Aluno* aluno);
   void AdicionaNotas();
-  void ImprimeAlunos();
+  bool ImprimeAlunos();
   void ImprimeProfessor();
   int GetAno();
   int GetCodigo();

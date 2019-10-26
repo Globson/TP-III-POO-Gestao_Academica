@@ -9,7 +9,7 @@ Turma::Turma(Professor* profResp, int Codigo, int Ano){
 void Turma::AdicionaAluno(Aluno* aluno){
   Alunos.push_back(aluno);
 }
-void Turma::ImprimeAlunos(){
+bool Turma::ImprimeAlunos(){
   if(Alunos.size()>0){
   cout<<"--Inicio de lista de alunos--"<<endl;
   for(unsigned int k=0;k<Alunos.size();k++){
@@ -25,8 +25,9 @@ void Turma::ImprimeAlunos(){
   cout<<"--Fim da lista de alunos--"<<endl;}
   else{
     cout<<"Nao ha alunos cadastrados na turma!"<<endl;
+    return false;
   }
-
+  return true;
 }
 void Turma::ImprimeProfessor(){
   //cout<<"O professor responsvel é: "<<ProfessorResponsavel.at(0).Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel.at(0).Get_Area()<<endl;
@@ -65,7 +66,12 @@ void Turma::AdicionaNotas(){
     }
     NotasAlunos.push_back(*NotaTemp);
   }
-  cout<<"Nota(s) adicionada(s) com sucesso!"<<endl;
+  if(Alunos.size()==0){
+    cout<<"Erro! Nenhum aluno cadastrado!"<<endl;
+  }else{
+    cout<<"Nota(s) adicionada(s) com sucesso!"<<endl;
+  }
+
 }
 void Turma::Imprime_Boletim(int indexAluno){
   unsigned int index = indexAluno;
@@ -76,6 +82,15 @@ void Turma::Imprime_Boletim(int indexAluno){
     NotasAlunos.at(index).ListaNotas();
     NotasAlunos.at(index).ImprimeMediaNotas();
     cout<<"\t---Fim do Boletim---"<<endl;
+    return;
+  }
+  if(NotasAlunos.size()==0){
+    cout<<"Erro! Nenhuma nota cadastrada!"<<endl;
+    return;
+  }
+  if(index>=NotasAlunos.size()){
+    cout<<"Erro! Este aluno nao possui notas cadastradas!"<<endl;
+    return;
   }
 }
 bool Turma::AlunoPresente(int Matricula){

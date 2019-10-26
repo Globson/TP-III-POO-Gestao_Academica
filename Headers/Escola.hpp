@@ -36,4 +36,5 @@ int Menu_Principal();
 int Menu_Aluno();
 int Menu_Professor();
 int Menu_Turma();
+int Menu_Finalizar();
 #endif

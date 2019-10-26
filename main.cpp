@@ -60,7 +60,13 @@ int main(int argc, char const *argv[]) {
        }
      }
      if(a==4){
-       break;
+       int b = Menu_Finalizar();
+       if(b==1){
+         break;
+       }
+       else{
+         continue;
+       }
      }
   }
   return 0;

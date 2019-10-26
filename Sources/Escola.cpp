@@ -73,10 +73,12 @@ void Escola::CriaTurma(){
   SizeProfs = Professores.size();
   if((indexprof-1)<0 || indexprof>SizeProfs){
     cout<<"Erro! Professor nao existe!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
 }else{
   cout<<"Erro! Cadastre pelo menos um professor!";
+  system("read -p 'Pressione Enter para continuar...' var");
   return;
 }
 cout<<"Entre com o ano da turma:";
@@ -112,12 +114,14 @@ void Escola::AdicionaAlunoEmTurma(){
   }
   if(!Verifica2){
     cout<<"Erro! Turma nao encontrada!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
 
   }
   else{
     cout<<"Erro! Crie pelo menos uma turma!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
   if(Alunos.size()>0){
@@ -148,6 +152,7 @@ void Escola::AdicionaAlunoEmTurma(){
   }
   else{
     cout<<"Erro! Nenhum aluno foi cadastrado!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
   system("read -p 'Pressione Enter para continuar...' var");
@@ -177,9 +182,13 @@ void Escola::AdicionaNota(){
     }
     if(!Verifica){
       cout<<"Erro! Turma nao encontrada!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
     Turmas.at(indexturma).AdicionaNotas();
+  }
+  else{
+    cout<<"Nenhuma turma encontrada!"<<endl;
   }
   system("read -p 'Pressione Enter para continuar...' var");
 }
@@ -208,11 +217,17 @@ void Escola::ImprimeBoletim(){
     }
     if(!Verifica){
       cout<<"Erro! Turma nao encontrada!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
-    Turmas.at(indexturma).ImprimeAlunos();
-    cout<<"Entre com a matricula do aluno que quer imprimir o boletim:";
-    cin>>MatriculaAluno;
+    if(Turmas.at(indexturma).ImprimeAlunos()){
+      cout<<"Entre com a matricula do aluno que quer imprimir o boletim:";
+      cin>>MatriculaAluno;
+    }
+    else{
+      system("read -p 'Pressione Enter para continuar...' var");
+      return;
+    }
     for(unsigned int x=0;x<Turmas.at(indexturma).Alunos.size();x++){
       if(MatriculaAluno == Turmas.at(indexturma).Alunos.at(x)->GetMatricula()){
         Verifica2 = true;
@@ -221,12 +236,15 @@ void Escola::ImprimeBoletim(){
     }
     if(!Verifica2){
       cout<<"Erro! Aluno nao cadastrado em turma escolhida!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
+      return;
     }
     Turmas.at(indexturma).Imprime_Boletim(indexaluno);
 
   }
   else{
     cout<<"Erro! Crie pelo menos uma turma!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
   system("read -p 'Pressione Enter para continuar...' var");
@@ -244,6 +262,9 @@ void Escola::ImprimeProfessores(){
     cout<<"Endereco: "<<Professores.at(k).Get_Endereco()<<endl;
     cout<<"--------------------------------------"<<endl;
   }
+  if(Professores.size()==0){
+    cout<<"Nenhum professor cadastrado!"<<endl;
+  }
   system("read -p 'Pressione Enter para continuar...' var");
 }
 
@@ -259,6 +280,9 @@ void Escola::ImprimeAlunos(){
     cout<<"Endereco: "<<Alunos.at(k).Get_Endereco()<<endl;
     cout<<"----------------------------------------"<<endl;
   }
+  if(Alunos.size()==0){
+    cout<<"Nenhum aluno cadastrado!"<<endl;
+  }
   system("read -p 'Pressione Enter para continuar...' var");
 }
 
@@ -270,6 +294,9 @@ void Escola::ImprimeTurmas(){
     cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
     cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
     cout<<"------------------"<<endl;
+  }
+  if(Turmas.size()==0){
+    cout<<"Erro! Nenhuma turma cadastrada!"<<endl;
   }
   system("read -p 'Pressione Enter para continuar...' var");
 }
@@ -296,12 +323,14 @@ void Escola::ImprimeAlunosDeTurma(){
     }
     if(!Verifica){
       cout<<"Erro! Turma nao encontrada!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
     Turmas.at(indexturma).ImprimeAlunos();
   }
   else{
     cout<<"Erro! Crie pelo menos uma turma!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
   system("read -p 'Pressione Enter para continuar...' var");
@@ -326,11 +355,13 @@ void Escola::ModificaProfessor(){
     SizeProfs = Professores.size();
     if((indexprof-1)<0 || indexprof>SizeProfs){
       cout<<"Erro! Professor nao existe!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
   }
     else{
-      cout<<"Erro! Cadastre pelo menos um professor!";
+      cout<<"Erro! Cadastre pelo menos um professor!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
     cin.ignore(1);
@@ -394,11 +425,13 @@ void Escola::ModificaAluno(){
     }
     if(!Verifica){
       cout<<"Erro! Aluno nao encontrado!"<<endl;
+      system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
   }
   else{
     cout<<"Erro! Nenhum aluno foi cadastrado!"<<endl;
+    system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
   system("read -p 'Pressione Enter para continuar...' var");
@@ -410,7 +443,7 @@ int Menu_Principal(){
   cout<<"1 - Professores ->"<<endl;
   cout<<"2 - Alunos ->"<<endl;
   cout<<"3 - Turmas ->"<<endl;
-  cout<<"4 - Finalizar programa"<<endl;
+  cout<<"4 - Finalizar programa:"<<endl;
   while(a!=1 && a!=2 && a!=3 && a!=4){
     cout<<"Entre com a opcao desejada:";
     cin>>a;
@@ -424,10 +457,10 @@ int Menu_Aluno(){
   int b=0;
   system("clear");
   cout<<"-------------Aluno--------------"<<endl;
-  cout<<"1 - Cadastrar Aluno"<<endl;
-  cout<<"2 - Listar Alunos"<<endl;
-  cout<<"3 - Alterar cadastro de Aluno"<<endl;
-  cout<<"4 - Voltar ao menu anterior"<<endl;
+  cout<<"1 - Cadastrar Aluno:"<<endl;
+  cout<<"2 - Listar Alunos:"<<endl;
+  cout<<"3 - Alterar cadastro de Aluno:"<<endl;
+  cout<<"4 - Voltar ao menu anterior:"<<endl;
   while(b!=1 && b!=2 && b!=3 && b!=4){
     cout<<"Entre com a opcao desejada:";
     cin>>b;
@@ -441,10 +474,10 @@ int Menu_Professor(){
   int b=0;
   system("clear");
   cout<<"-------------Professor--------------"<<endl;
-  cout<<"1 - Cadastrar professor"<<endl;
-  cout<<"2 - Listar professores"<<endl;
-  cout<<"3 - Alterar cadastro de professor"<<endl;
-  cout<<"4 - Voltar ao menu anterior"<<endl;
+  cout<<"1 - Cadastrar professor:"<<endl;
+  cout<<"2 - Listar professores:"<<endl;
+  cout<<"3 - Alterar cadastro de professor:"<<endl;
+  cout<<"4 - Voltar ao menu anterior:"<<endl;
   while(b!=1 && b!=2 && b!=3 && b!=4){
     cout<<"Entre com a opcao desejada:";
     cin>>b;
@@ -458,17 +491,33 @@ int Menu_Turma(){
   int b=0;
   system("clear");
   cout<<"-------------Turma--------------"<<endl;
-  cout<<"1 - Criar Turma"<<endl;
-  cout<<"2 - Adicionar Aluno em turma"<<endl;
-  cout<<"3 - Listar Alunos de Turma"<<endl;
-  cout<<"4 - Adicionar Notas a Turma"<<endl;
-  cout<<"5 - Imprimir boletim"<<endl;
-  cout<<"6 - Imprime Turmas"<<endl;
-  cout<<"7 - Voltar ao menu anterior"<<endl;
+  cout<<"1 - Criar Turma:"<<endl;
+  cout<<"2 - Adicionar Aluno em turma:"<<endl;
+  cout<<"3 - Listar Alunos de Turma:"<<endl;
+  cout<<"4 - Adicionar Notas a Turma:"<<endl;
+  cout<<"5 - Imprimir boletim:"<<endl;
+  cout<<"6 - Imprimir Turmas:"<<endl;
+  cout<<"7 - Voltar ao menu anterior:"<<endl;
   while(b!=1 && b!=2 && b!=3 && b!=4 && b!=5 && b!=6 && b!=7){
     cout<<"Entre com a opcao desejada:";
     cin>>b;
     if(b!=1 && b!=2 && b!=3 && b!=4 && b!=5 && b!=6 && b!=7){
+      cout<<"Opcao invalida!"<<endl;
+    }
+  }
+  return b;
+}
+int Menu_Finalizar(){
+  int b=0;
+  system("clear");
+  cout<<"-------------Finalizar--------------"<<endl;
+  cout<<"Deseja realmente finalizar a execucao do programa?"<<endl;
+  cout<<"\t1 - Sim"<<endl;
+  cout<<"\t2 - Nao"<<endl;
+  while(b!=1 && b!=2){
+    cout<<"Entre com a opcao desejada:";
+    cin>>b;
+    if(b!=1 && b!=2 ){
       cout<<"Opcao invalida!"<<endl;
     }
   }
