@@ -43,6 +43,10 @@ int Turma::GetCodigo(){
   return Codigo;
 }
 void Turma::AdicionaNotas(){
+  if(NotasAlunos.size()>0){
+    cout<<"Erro! As notas da turma ja foram adicionadas! Caso necessario crie outra turma e readicione todas as notas que deseje."<<endl;
+    return;
+  }
   int trava;
   double notatemp;
   Notas *NotaTemp;
