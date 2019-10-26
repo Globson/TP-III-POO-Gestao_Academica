@@ -78,3 +78,12 @@ void Turma::Imprime_Boletim(int indexAluno){
     cout<<"\t---Fim do Boletim---"<<endl;
   }
 }
+bool Turma::AlunoPresente(int Matricula){
+  bool Verifica = false;
+  for(unsigned int k=0;k<Alunos.size();k++){
+    if(Alunos.at(k)->GetMatricula() == Matricula){
+      Verifica = true;
+    }
+  }
+  return Verifica;
+}

@@ -27,6 +27,7 @@ public:
   int GetCodigo();
   string GetProfessor();
   void Imprime_Boletim(int indexAluno);
+  bool AlunoPresente(int Matricula);
   //int SizeAlunos();
   //int MatriculaAlunoAt(int i);
 };

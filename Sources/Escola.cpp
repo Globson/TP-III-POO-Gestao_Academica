@@ -132,9 +132,14 @@ void Escola::AdicionaAlunoEmTurma(){
     cin>>Matricula;
     for(unsigned int j=0;j<Alunos.size();j++){
       if(Alunos.at(j).GetMatricula() == Matricula){
-        Turmas.at(indexturma).AdicionaAluno(&Alunos.at(j));
         Verifica = true;
-        cout<<"Aluno adicionado com sucesso a turma!"<<endl;
+        if(!Turmas.at(indexturma).AlunoPresente(Matricula)){
+          Turmas.at(indexturma).AdicionaAluno(&Alunos.at(j));
+          cout<<"Aluno adicionado com sucesso a turma!"<<endl;
+        }
+        else{
+          cout<<"Erro!Aluno ja presente na turma!"<<endl;
+        }
       }
     }
     if(!Verifica){
