@@ -44,8 +44,21 @@ int Turma::GetCodigo(){
 }
 void Turma::AdicionaNotas(){
   if(NotasAlunos.size()>0){
-    cout<<"Erro! As notas da turma ja foram adicionadas! Caso necessario crie outra turma e readicione todas as notas que deseje."<<endl;
-    return;
+    int a=0;
+    cout<<"Erro! As notas da turma ja foram adicionadas! Deseja apagar e readicionar as notas da turma?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";;
+    while(a!=1 && a!=2){
+      cin>>a;
+      if(a!=1 && a!=2){
+        cout<<"Entrada invalida!"<<endl;
+      }
+    }
+    if(a==1){
+      NotasAlunos.clear();
+    }
+    else{
+      cout<<"Adicionamento de notas cancelado!"<<endl;
+      return;
+    }
   }
   int trava;
   double notatemp;
