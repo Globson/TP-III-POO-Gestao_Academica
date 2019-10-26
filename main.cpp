@@ -4,48 +4,64 @@
 #include "Headers/Escola.hpp"
 
 int main(int argc, char const *argv[]) {
-
-  /*Professor *ProfAux = new Professor("Jose");
-  ProfAux->Set_Area("Exatas");
-  ProfAux->Set_Salario(0.1);
-  Aluno Saulim("Saulim");
-  Saulim.Set_NumMatricula(24);
-  Saulim.Set_DataNasc("AlgumDiade1999");
-  Saulim.Set_NomePais("SaulimPai","SaulimMAe");
-  Saulim.Set_Endereco("RUA ao lado do fim do mundo, onde judas perdeu as botas");
-  Aluno Globson("Samuel");
-  Globson.Set_DataNasc("02/07/1999");
-  Globson.Set_NumMatricula(11);
-  Globson.Set_NomePais("GlobsonPai","GlobsonMae");
-  Globson.Set_Endereco("Rua proxima a lugar nenhum, na esquina com perdido em paris");
-  Turma Turma1(*ProfAux,4,1432);
-  Turma1.AdicionaAluno(Globson);
-  Turma1.AdicionaAluno(Saulim);
-  Turma1.AdicionaNotas();
-  Turma1.ImprimeAlunos();
-  Turma1.ImprimeProfessor();
-  Turma1.Imprime_Boletim(0);
-  Turma1.Imprime_Boletim(1);*/
-
-  Escola Esc;
-  Esc.AdicionaProfessor();
-  Esc.AdicionaProfessor();
-  Esc.AdicionaProfessor();
-  Esc.CriaTurma();
-  Esc.CriaTurma();
-  cin.ignore(1);
-  Esc.AdicionaAluno();
-  Esc.AdicionaAluno();
-  Esc.AdicionaAlunoEmTurma();
-  Esc.AdicionaAlunoEmTurma();
-  Esc.ImprimeAlunosDeTurma();
-  Esc.AdicionaNota();
-  Esc.ImprimeBoletim();
-
-  
-  Esc.ModificaProfessor();
-  Esc.ModificaAluno();
-  Esc.ImprimeAlunosDeTurma();
-  Esc.CriaTurma();
+  Escola Escola1;
+  while(true){
+    int a = Menu_Principal();
+    if(a==1){
+        int b = Menu_Professor();
+          if(b==1){
+            Escola1.AdicionaProfessor();
+          }
+          if(b==2){
+            Escola1.ImprimeProfessores();
+          }
+          if(b==3){
+            Escola1.ModificaProfessor();
+          }
+          if(b==4){
+            continue;
+          }}
+      if(a==2){
+        int b = Menu_Aluno();
+        if(b==1){
+          Escola1.AdicionaAluno();
+        }
+        if(b==2){
+          Escola1.ImprimeAlunos();
+        }
+        if(b==3){
+          Escola1.ModificaAluno();
+        }
+        if(b==4){
+          continue;
+        }
+     }
+     if(a==3){
+       int b = Menu_Turma();
+       if(b==1){
+         Escola1.CriaTurma();}
+       if(b==2){
+         Escola1.AdicionaAlunoEmTurma();
+       }
+       if(b==3){
+         Escola1.ImprimeAlunosDeTurma();
+       }
+       if(b==4){
+         Escola1.AdicionaNota();
+       }
+       if(b==5){
+         Escola1.ImprimeBoletim();
+       }
+       if(b==6){
+         Escola1.ImprimeTurmas();
+       }
+       if(b==7){
+       continue;
+       }
+     }
+     if(a==4){
+       break;
+     }
+  }
   return 0;
 }

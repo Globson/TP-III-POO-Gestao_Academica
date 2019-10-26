@@ -30,7 +30,7 @@ void Turma::ImprimeAlunos(){
 }
 void Turma::ImprimeProfessor(){
   //cout<<"O professor responsvel é: "<<ProfessorResponsavel.at(0).Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel.at(0).Get_Area()<<endl;
-  cout<<"O professor responsvel é: "<<ProfessorResponsavel->Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel->Get_Area()<<endl;
+  cout<<"O professor responsavel é: "<<ProfessorResponsavel->Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel->Get_Area()<<endl;
 }
 string Turma::GetProfessor(){
   return ProfessorResponsavel->Get_Nome();
@@ -65,22 +65,16 @@ void Turma::AdicionaNotas(){
     }
     NotasAlunos.push_back(*NotaTemp);
   }
+  cout<<"Nota(s) adicionada(s) com sucesso!"<<endl;
 }
 void Turma::Imprime_Boletim(int indexAluno){
   unsigned int index = indexAluno;
-  if(index>=0 && index<=NotasAlunos.size()){
+  if(index>=0 && index<NotasAlunos.size()){
     cout<<"\t---Boletim do aluno---"<<endl;
     cout<<"Nome: "<<Alunos.at(index)->Get_Nome()<<endl;
     cout<<"Matricula: "<<Alunos.at(index)->GetMatricula()<<endl;
     NotasAlunos.at(index).ListaNotas();
     NotasAlunos.at(index).ImprimeMediaNotas();
+    cout<<"\t---Fim do Boletim---"<<endl;
   }
 }
-
-/*int Turma::SizeAlunos(){
-  int a = Alunos.size();
-  return a;
-}
-int Turma::MatriculaAlunoAt(int i){
-  return Alunos.at(i).GetMatricula();
-}*/

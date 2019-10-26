@@ -31,4 +31,9 @@ public:  //Nenhuma deve ter parametro, para poder ser totalmente interativo apar
   void ModificaProfessor();
   void ModificaAluno();
 };
+
+int Menu_Principal();
+int Menu_Aluno();
+int Menu_Professor();
+int Menu_Turma();
 #endif
