@@ -14,12 +14,12 @@ void Escola::AdicionaProfessor(){
   cin.ignore(1);
   getline(cin,Nome);
 
-  cout<<"Entre com a área do professor:";
+  cout<<"Entre com a area do professor:";
   getline(cin,Area);
 
   while (TemLetra!=0)
   { 
-    cout<<"Entre com o salário do professor:(Apenas números)";
+    cout<<"Entre com o salario do professor:(Apenas numeros)";
     cin>>SalarioString;
     TemLetra=0;
     for (int i = 0; i < SalarioString.size(); i++)
@@ -53,11 +53,11 @@ void Escola::AdicionaAluno(){
   getline(cin,Nome);
   cout<<"Entre com o nome do pai do aluno:";
   getline(cin,NomePai);
-  cout<<"Entre com o nome da mãe do aluno:";
+  cout<<"Entre com o nome da mae do aluno:";
   getline(cin,NomeMae);
   cout<<"Entre com a data de nascimento do aluno:";
   getline(cin,DataNasc);
-  cout<<"Entre com o endereço do aluno:";
+  cout<<"Entre com o endereco do aluno:";
   getline(cin,Endereco);
 
   Aluno AlunoAux(Nome);
@@ -77,18 +77,18 @@ void Escola::CriaTurma(){
   string AnoString,IndexString;
   stringstream ss;
   if(Professores.size()>0){
-    cout<<"Escolha um professor abaixo para ser responsável pela turma:"<<endl;
+    cout<<"Escolha um professor abaixo para ser responsavel pela turma:"<<endl;
   for(unsigned int k=0;k<Professores.size();k++){
-    cout<<"->Professor número "<<k+1<<": "<<endl;
+    cout<<"->Professor numero "<<k+1<<": "<<endl;
     cout<<"Nome: "<<Professores.at(k).Get_Nome()<<endl;
-    cout<<"Área: "<<Professores.at(k).Get_Area()<<endl;
-    cout<<"Salário: "<<Professores.at(k).Get_Salario()<<endl;
+    cout<<"Area: "<<Professores.at(k).Get_Area()<<endl;
+    cout<<"Salario: "<<Professores.at(k).Get_Salario()<<endl;
     cout<<"-----------------------------------------"<<endl;
   }
   
   while (TemLetra!=0)
   { 
-    cout<<"Entre com o número do professor escolhido:";
+    cout<<"Entre com o numero do professor escolhido:";
     cin>>IndexString;
     TemLetra=0;
     for (int i = 0; i < IndexString.size(); i++)
@@ -106,7 +106,7 @@ void Escola::CriaTurma(){
   
   SizeProfs = Professores.size();
   if((indexprof-1)<0 || indexprof>SizeProfs){
-    cout<<"Erro! Professor não existe!"<<endl;
+    cout<<"Erro! Professor nao existe!"<<endl;
     system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
@@ -118,7 +118,7 @@ void Escola::CriaTurma(){
 TemLetra = -1;
 while (TemLetra!=0)
   { 
-    cout<<"Entre com o ano da turma:(Apenas números)";
+    cout<<"Entre com o ano da turma:(Apenas numeros)";
     cin>>AnoString;
     TemLetra=0;
     for (int i = 0; i < AnoString.size(); i++)
@@ -149,14 +149,14 @@ void Escola::AdicionaAlunoEmTurma(){
   if(Turmas.size()>0){
     for(unsigned int k=0;k<Turmas.size();k++){
       cout<<"-----Turma-----"<<endl;
-      cout<<"Código da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
       cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
-      cout<<"Professor responsável pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
   while (TemLetra!=0)
     { 
-      cout<<"Entre com o código da turma que deseja adicionar alunos:";
+      cout<<"Entre com o codigo da turma que deseja adicionar alunos:";
       cin>>TurmaString;
       TemLetra=0;
       for (int i = 0; i < TurmaString.size(); i++)
@@ -178,7 +178,7 @@ void Escola::AdicionaAlunoEmTurma(){
     }
   }
   if(!Verifica2){
-    cout<<"Erro! Turma não encontrada!"<<endl;
+    cout<<"Erro! Turma nao encontrada!"<<endl;
     system("read -p 'Pressione Enter para continuar...' var");
     return;
   }
@@ -194,7 +194,7 @@ void Escola::AdicionaAlunoEmTurma(){
       cout<<"---------------Aluno "<<i+1<<" -----------------"<<endl;
       cout<<"Nome:"<<Alunos.at(i).Get_Nome()<<endl;
       cout<<"Matrícula: "<<Alunos.at(i).GetMatricula()<<endl;
-      cout<<"Endereço: "<<Alunos.at(i).Get_Endereco()<<endl;
+      cout<<"Endereco: "<<Alunos.at(i).Get_Endereco()<<endl;
       cout<<"----------------------------------------"<<endl;
     }
     TemLetra=-1;
@@ -221,12 +221,12 @@ void Escola::AdicionaAlunoEmTurma(){
           cout<<"Aluno adicionado com sucesso a turma!"<<endl;
         }
         else{
-          cout<<"Erro!Aluno já presente na turma!"<<endl;
+          cout<<"Erro! Aluno ja presente na turma!"<<endl;
         }
       }
     }
     if(!Verifica){
-      cout<<"Erro!Aluno não encontrado!"<<endl;
+      cout<<"Erro! Aluno nao encontrado!"<<endl;
     }
   }
   else{
@@ -247,15 +247,15 @@ void Escola::AdicionaNota(){
   if(Turmas.size()>0){
     for(unsigned int k=0;k<Turmas.size();k++){
       cout<<"-----Turma-----"<<endl;
-      cout<<"Código da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
       cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
-      cout<<"Professor responsável pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
    
     while (TemLetra!=0)
     { 
-      cout<<"Entre com o código da turma que deseja adicionar notas dos alunos:";
+      cout<<"Entre com o codigo da turma que deseja adicionar notas dos alunos:";
       cin>>TurmaString;
       TemLetra=0;
       for (int i = 0; i < TurmaString.size(); i++)
@@ -276,7 +276,7 @@ void Escola::AdicionaNota(){
       }
     }
     if(!Verifica){
-      cout<<"Erro! Turma não encontrada!"<<endl;
+      cout<<"Erro! Turma nao encontrada!"<<endl;
       system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
@@ -298,15 +298,15 @@ void Escola::ImprimeBoletim(){
   if(Turmas.size()>0){
     for(unsigned int k=0;k<Turmas.size();k++){
       cout<<"-----Turma-----"<<endl;
-      cout<<"Coódigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
       cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
-      cout<<"Professor responsável pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
     
     while (TemLetra!=0)
         { 
-          cout<<"Entre com o código da turma que deseja imprimir o boletim do aluno:";
+          cout<<"Entre com o codigo da turma que deseja imprimir o boletim do aluno:";
           cin>>TurmaString;
           TemLetra=0;
           for (int i = 0; i < TurmaString.size(); i++)
@@ -328,7 +328,7 @@ void Escola::ImprimeBoletim(){
       }
     }
     if(!Verifica){
-      cout<<"Erro! Turma não encontrada!"<<endl;
+      cout<<"Erro! Turma nao encontrada!"<<endl;
       system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
@@ -360,7 +360,7 @@ void Escola::ImprimeBoletim(){
       }
     }
     if(!Verifica2){
-      cout<<"Erro! Aluno não cadastrado em turma escolhida!"<<endl;
+      cout<<"Erro! Aluno nao cadastrado em turma escolhida!"<<endl;
       system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
@@ -382,9 +382,9 @@ void Escola::ImprimeProfessores(){
   for(unsigned int k=0;k<Professores.size();k++){
     cout<<"------------Professor "<<k+1<<" --------------"<<endl;
     cout<<"Nome: "<<Professores.at(k).Get_Nome()<<endl;
-    cout<<"Área: "<<Professores.at(k).Get_Area()<<endl;
-    cout<<"Salário: "<<Professores.at(k).Get_Salario()<<endl;
-    cout<<"Endereço: "<<Professores.at(k).Get_Endereco()<<endl;
+    cout<<"Area: "<<Professores.at(k).Get_Area()<<endl;
+    cout<<"Salario: "<<Professores.at(k).Get_Salario()<<endl;
+    cout<<"Endereco: "<<Professores.at(k).Get_Endereco()<<endl;
     cout<<"--------------------------------------"<<endl;
   }
   if(Professores.size()==0){
@@ -399,7 +399,7 @@ void Escola::ImprimeAlunos(){
     cout<<"---------------Aluno "<<k+1<<" -----------------"<<endl;
     cout<<"Nome:"<<Alunos.at(k).Get_Nome()<<endl;
     cout<<"Matrícula: "<<Alunos.at(k).GetMatricula()<<endl;
-    cout<<"Nome da mãe: "<<Alunos.at(k).Get_NomeMae()<<endl;
+    cout<<"Nome da mae: "<<Alunos.at(k).Get_NomeMae()<<endl;
     cout<<"Nome do pai: "<<Alunos.at(k).Get_NomePai()<<endl;
     cout<<"Data de Nascimento: "<<Alunos.at(k).Get_DataNasc()<<endl;
     cout<<"Endereco: "<<Alunos.at(k).Get_Endereco()<<endl;
@@ -415,9 +415,9 @@ void Escola::ImprimeTurmas(){
   system("clear");
   for(unsigned int k=0;k<Turmas.size();k++){
     cout<<"-----Turma "<<k+1<<" -----"<<endl;
-    cout<<"Código da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+    cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
     cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
-    cout<<"Professor responsável pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+    cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
     cout<<"------------------"<<endl;
   }
   if(Turmas.size()==0){
@@ -434,14 +434,14 @@ void Escola::ImprimeAlunosDeTurma(){
   if(Turmas.size()>0){
     for(unsigned int k=0;k<Turmas.size();k++){
       cout<<"-----Turma-----"<<endl;
-      cout<<"Código da turma: "<<Turmas.at(k).GetCodigo()<<endl;
+      cout<<"Codigo da turma: "<<Turmas.at(k).GetCodigo()<<endl;
       cout<<"Ano da turma: "<<Turmas.at(k).GetAno()<<endl;
-      cout<<"Professor responsável pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
+      cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
     while (TemLetra!=0)
         { 
-          cout<<"Entre com o código da turma que deseja imprimir os alunos:";
+          cout<<"Entre com o codigo da turma que deseja imprimir os alunos:";
           cin>>TurmaString;
           TemLetra=0;
           for (int i = 0; i < TurmaString.size(); i++)
@@ -488,13 +488,13 @@ void Escola::ModificaProfessor(){
     for(unsigned int k=0;k<Professores.size();k++){
       cout<<"-->Professor numero "<<k+1<<": "<<endl;
       cout<<"Nome: "<<Professores.at(k).Get_Nome()<<endl;
-      cout<<"Área: "<<Professores.at(k).Get_Area()<<endl;
-      cout<<"Salário: "<<Professores.at(k).Get_Salario()<<endl;
+      cout<<"Area: "<<Professores.at(k).Get_Area()<<endl;
+      cout<<"Salario: "<<Professores.at(k).Get_Salario()<<endl;
       cout<<"-----------------------------------------"<<endl;
     }
     while (TemLetra!=0)
     { 
-      cout<<"Entre com o número do professor escolhido:";
+      cout<<"Entre com o numero do professor escolhido:";
       cin>>IndexString;
       TemLetra=0;
       for (int i = 0; i < IndexString.size(); i++)
@@ -509,7 +509,7 @@ void Escola::ModificaProfessor(){
     ss.clear();
     SizeProfs = Professores.size();
     if((indexprof-1)<0 || indexprof>SizeProfs){
-      cout<<"Erro! Professor não existe!"<<endl;
+      cout<<"Erro! Professor nao existe!"<<endl;
       system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
@@ -522,13 +522,13 @@ void Escola::ModificaProfessor(){
     cin.ignore(1);
     cout<<"Entre com o nome do professor:";
     getline(cin,Nome);
-    cout<<"Entre com a área do professor:";
+    cout<<"Entre com a area do professor:";
     getline(cin,Area);
     //cout<<"Entre com o salário do professor:";
     TemLetra=0;
     while (TemLetra!=0)
     { 
-      cout<<"Entre com o salário do professor:(Apenas números)";
+      cout<<"Entre com o salario do professor:(Apenas numeros)";
       cin>>SalarioString;
       TemLetra=0;
       for (int i = 0; i < SalarioString.size(); i++)
@@ -542,7 +542,7 @@ void Escola::ModificaProfessor(){
     ss >> salario;
     ss.clear();
     cin.ignore(1);
-    cout<<"Entre com o endereço do professor:";
+    cout<<"Entre com o endereco do professor:";
     getline(cin,Endereco);
     Professores.at(indexprof-1).ModificaNome(Nome);
     Professores.at(indexprof-1).Set_Area(Area);
@@ -565,7 +565,7 @@ void Escola::ModificaAluno(){
       cout<<"----------------Aluno---------------"<<endl;
       cout<<"Nome:"<<Alunos.at(i).Get_Nome()<<endl;
       cout<<"Matrícula: "<<Alunos.at(i).GetMatricula()<<endl;
-      cout<<"Endereço: "<<Alunos.at(i).Get_Endereco()<<endl;
+      cout<<"Endereco: "<<Alunos.at(i).Get_Endereco()<<endl;
       cout<<"------------------------------------"<<endl;
     }
     
@@ -592,11 +592,11 @@ void Escola::ModificaAluno(){
         getline(cin,Nome);
         cout<<"Entre com o nome do pai do aluno:";
         getline(cin,NomePai);
-        cout<<"Entre com o nome da mãe do aluno:";
+        cout<<"Entre com o nome da mae do aluno:";
         getline(cin,NomeMae);
         cout<<"Entre com a data de nascimento do aluno:";
         getline(cin,DataNasc);
-        cout<<"Entre com o endereço do aluno:";
+        cout<<"Entre com o endereco do aluno:";
         getline(cin,Endereco);
 
         Alunos.at(j).ModificaNome(Nome);
@@ -610,7 +610,7 @@ void Escola::ModificaAluno(){
       }
     }
     if(!Verifica){
-      cout<<"Erro! Aluno não encontrado!"<<endl;
+      cout<<"Erro! Aluno nao encontrado!"<<endl;
       system("read -p 'Pressione Enter para continuar...' var");
       return;
     }
@@ -627,7 +627,7 @@ int Menu_Principal(){
   string aString;
   stringstream ss;
   system("clear");
-  cout<<"----------Gestão-Acadêmica----------"<<endl;
+  cout<<"----------Gestao-Academica----------"<<endl;
   cout<<"1 - Professores ->"<<endl;
   cout<<"2 - Alunos ->"<<endl;
   cout<<"3 - Turmas ->"<<endl;
@@ -636,7 +636,7 @@ int Menu_Principal(){
     //TemLetra=-1;
     while (TemLetra!=0)
     { 
-      cout<<"Entre com a opção desejada:";
+      cout<<"Entre com a opcao desejada:";
       cin>>aString;
       TemLetra=0;
       for (int i = 0; i < aString.size(); i++)
@@ -651,7 +651,7 @@ int Menu_Principal(){
   ss.clear();
      
     if(a!=1 && a!=2 && a!=3 && a!=4){
-      cout<<"Opção inválida!"<<endl;
+      cout<<"Opção invalida!"<<endl;
       TemLetra=-1;
     }
   }
@@ -671,7 +671,7 @@ int Menu_Aluno(){
     
     while (TemLetra!=0)
     { 
-      cout<<"Entre com a opção desejada:";
+      cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
       for (int i = 0; i < bString.size(); i++)
@@ -685,7 +685,7 @@ int Menu_Aluno(){
     ss >> b;
     ss.clear();
     if(b!=1 && b!=2 && b!=3 && b!=4){
-      cout<<"Opção inválida!"<<endl;
+      cout<<"Opção invalida!"<<endl;
       TemLetra=-1;
     }
   }
@@ -705,7 +705,7 @@ int Menu_Professor(){
     
     while (TemLetra!=0)
     { 
-      cout<<"Entre com a opção desejada:";
+      cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
       for (int i = 0; i < bString.size(); i++)
@@ -721,7 +721,7 @@ int Menu_Professor(){
 
     if(b!=1 && b!=2 && b!=3 && b!=4){
       TemLetra=-1;
-      cout<<"Opção inválida!"<<endl;
+      cout<<"Opcao invalida!"<<endl;
     }
   }
   return b;
@@ -743,7 +743,7 @@ int Menu_Turma(){
     
     while (TemLetra!=0)
     { 
-      cout<<"Entre com a opção desejada:";
+      cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
       for (int i = 0; i < bString.size(); i++)
@@ -757,7 +757,7 @@ int Menu_Turma(){
     ss >> b;
     ss.clear();
     if(b!=1 && b!=2 && b!=3 && b!=4 && b!=5 && b!=6 && b!=7){
-      cout<<"Opcao inválida!"<<endl;
+      cout<<"Opcao invalida!"<<endl;
       TemLetra=-1;
     }
   }
@@ -769,13 +769,13 @@ int Menu_Finalizar(){
   stringstream ss;
   system("clear");
   cout<<"-------------Finalizar--------------"<<endl;
-  cout<<"Deseja realmente finalizar a execução do programa?"<<endl;
+  cout<<"Deseja realmente finalizar a execucao do programa?"<<endl;
   cout<<"\t1 - Sim"<<endl;
-  cout<<"\t2 - Não"<<endl;
+  cout<<"\t2 - Nao"<<endl;
   while(b!=1 && b!=2){
     while (TemLetra!=0)
     { 
-      cout<<"Entre com a opção desejada:";
+      cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
       for (int i = 0; i < bString.size(); i++)
@@ -789,7 +789,7 @@ int Menu_Finalizar(){
     ss >> b;
     ss.clear();
     if(b!=1 && b!=2 ){
-      cout<<"Opção inválida!"<<endl;
+      cout<<"Opcao invalida!"<<endl;
       TemLetra=-1;
     }
   }
