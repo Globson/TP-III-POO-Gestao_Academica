@@ -3,6 +3,7 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include <sstream>
 #include "Aluno.hpp"
 #include "Professor.hpp"
 #include "Notas.hpp"

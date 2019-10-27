@@ -45,11 +45,12 @@ int Turma::GetCodigo(){
 void Turma::AdicionaNotas(){
   if(NotasAlunos.size()>0){
     int a=0;
-    cout<<"Erro! As notas da turma ja foram adicionadas! Deseja apagar e readicionar as notas da turma?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";;
+    cout<<"Erro! As notas da turma já foram adicionadas! Deseja apagar e readicionar as notas da turma?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";;
     while(a!=1 && a!=2){
+      
       cin>>a;
       if(a!=1 && a!=2){
-        cout<<"Entrada invalida!"<<endl;
+        cout<<"Entrada inválida!"<<endl;
       }
     }
     if(a==1){
@@ -60,19 +61,51 @@ void Turma::AdicionaNotas(){
       return;
     }
   }
-  int trava;
+  int trava,TemLetra;
   double notatemp;
   Notas *NotaTemp;
+  stringstream ss;
+  string NotaString, OpcaoString;
   for(unsigned int i=0;i<Alunos.size();i++){
     NotaTemp = new Notas();
     while(true){
       trava=0;
-      cout<<"Entre com a nota do aluno de matricula "<<Alunos.at(i)->GetMatricula()<< ": ";
-      cin>>notatemp;
+      TemLetra=-1;
+      while (TemLetra!=0)
+      { 
+        cout<<"Entre com a nota do aluno de matricula "<<Alunos.at(i)->GetMatricula()<< ": ";
+        cin>>NotaString;
+        TemLetra=0;
+        for (int i = 0; i < NotaString.size(); i++)
+        {
+          if(isalpha(NotaString[i])){
+            TemLetra++;
+          }
+        }
+      }
+      ss << NotaString;
+      ss >> notatemp;
+      ss.clear();
+      
       NotaTemp->AdicionaNota(notatemp);
       while(trava!=1 && trava!=2){
-        cout<<"Deseja entrar com mais notas desse mesmo aluno?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";
-        cin>>trava;
+        TemLetra=-1;
+        while (TemLetra!=0)
+        { 
+          cout<<"Deseja entrar com mais notas desse mesmo aluno?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";
+          cin>>OpcaoString;
+          TemLetra=0;
+          for (int i = 0; i < OpcaoString.size(); i++)
+          {
+            if(isalpha(OpcaoString[i])){
+              TemLetra++;
+            }
+          }
+        }
+        ss << OpcaoString;
+        ss >> trava;
+        ss.clear();
+        
         if(trava!=1 && trava!=2){
           cout<<"Entrada invalida!"<<endl;
         }
