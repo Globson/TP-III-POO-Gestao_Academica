@@ -31,7 +31,7 @@ bool Turma::ImprimeAlunos(){
 }
 void Turma::ImprimeProfessor(){
   //cout<<"O professor responsvel é: "<<ProfessorResponsavel.at(0).Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel.at(0).Get_Area()<<endl;
-  cout<<"O professor responsavel é: "<<ProfessorResponsavel->Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel->Get_Area()<<endl;
+  cout<<"O professor responsavel e: "<<ProfessorResponsavel->Get_Nome()<<endl<<"Da Area de: "<< ProfessorResponsavel->Get_Area()<<endl;
 }
 string Turma::GetProfessor(){
   return ProfessorResponsavel->Get_Nome();
@@ -45,12 +45,12 @@ int Turma::GetCodigo(){
 void Turma::AdicionaNotas(){
   if(NotasAlunos.size()>0){
     int a=0;
-    cout<<"Erro! As notas da turma já foram adicionadas! Deseja apagar e readicionar as notas da turma?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";;
+    cout<<"Erro! As notas da turma ja foram adicionadas! Deseja apagar e readicionar as notas da turma?"<<endl<<"\t1-Sim"<<endl<<"\t2-Nao"<<endl<<"Entre:";;
     while(a!=1 && a!=2){
       
       cin>>a;
       if(a!=1 && a!=2){
-        cout<<"Entrada inválida!"<<endl;
+        cout<<"Entrada invalida!"<<endl;
       }
     }
     if(a==1){
