@@ -18,11 +18,11 @@ void Escola::AdicionaProfessor(){
   getline(cin,Area);
 
   while (TemLetra!=0)
-  { 
+  {
     cout<<"Entre com o salario do professor:(Apenas numeros)";
     cin>>SalarioString;
     TemLetra=0;
-    for (int i = 0; i < SalarioString.size(); i++)
+    for (unsigned int i = 0; i < SalarioString.size(); i++)
     {
       if(isalpha(SalarioString[i])){
         TemLetra++;
@@ -85,13 +85,13 @@ void Escola::CriaTurma(){
     cout<<"Salario: "<<Professores.at(k).Get_Salario()<<endl;
     cout<<"-----------------------------------------"<<endl;
   }
-  
+
   while (TemLetra!=0)
-  { 
+  {
     cout<<"Entre com o numero do professor escolhido:";
     cin>>IndexString;
     TemLetra=0;
-    for (int i = 0; i < IndexString.size(); i++)
+    for (unsigned int i = 0; i < IndexString.size(); i++)
     {
       if(isalpha(IndexString[i])){
         TemLetra++;
@@ -103,7 +103,7 @@ void Escola::CriaTurma(){
   ss.clear();
 
 
-  
+
   SizeProfs = Professores.size();
   if((indexprof-1)<0 || indexprof>SizeProfs){
     cout<<"Erro! Professor nao existe!"<<endl;
@@ -117,11 +117,11 @@ void Escola::CriaTurma(){
 }
 TemLetra = -1;
 while (TemLetra!=0)
-  { 
+  {
     cout<<"Entre com o ano da turma:(Apenas numeros)";
     cin>>AnoString;
     TemLetra=0;
-    for (int i = 0; i < AnoString.size(); i++)
+    for (unsigned int i = 0; i < AnoString.size(); i++)
     {
       if(isalpha(AnoString[i])){
         TemLetra++;
@@ -155,11 +155,11 @@ void Escola::AdicionaAlunoEmTurma(){
       cout<<"----------------"<<endl;
     }
   while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com o codigo da turma que deseja adicionar alunos:";
       cin>>TurmaString;
       TemLetra=0;
-      for (int i = 0; i < TurmaString.size(); i++)
+      for (unsigned int i = 0; i < TurmaString.size(); i++)
       {
         if(isalpha(TurmaString[i])){
           TemLetra++;
@@ -169,7 +169,7 @@ void Escola::AdicionaAlunoEmTurma(){
     ss << TurmaString;
     ss >> Codigoturma;
     ss.clear();
-  
+
   for(unsigned int x=0;x<Turmas.size();x++){
     if(Codigoturma == Turmas.at(x).GetCodigo()){
       indexturma = x;
@@ -199,11 +199,11 @@ void Escola::AdicionaAlunoEmTurma(){
     }
     TemLetra=-1;
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Digite a matrícula do aluno que deseja adicionar:";
       cin>>MatriculaString;
       TemLetra=0;
-      for (int i = 0; i < MatriculaString.size(); i++)
+      for (unsigned int i = 0; i < MatriculaString.size(); i++)
       {
         if(isalpha(MatriculaString[i])){
           TemLetra++;
@@ -252,13 +252,13 @@ void Escola::AdicionaNota(){
       cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
-   
+
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com o codigo da turma que deseja adicionar notas dos alunos:";
       cin>>TurmaString;
       TemLetra=0;
-      for (int i = 0; i < TurmaString.size(); i++)
+      for (unsigned int i = 0; i < TurmaString.size(); i++)
       {
         if(isalpha(TurmaString[i])){
           TemLetra++;
@@ -303,13 +303,13 @@ void Escola::ImprimeBoletim(){
       cout<<"Professor responsavel pela turma: "<<Turmas.at(k).GetProfessor()<<endl;
       cout<<"----------------"<<endl;
     }
-    
+
     while (TemLetra!=0)
-        { 
+        {
           cout<<"Entre com o codigo da turma que deseja imprimir o boletim do aluno:";
           cin>>TurmaString;
           TemLetra=0;
-          for (int i = 0; i < TurmaString.size(); i++)
+          for (unsigned int i = 0; i < TurmaString.size(); i++)
           {
             if(isalpha(TurmaString[i])){
               TemLetra++;
@@ -334,11 +334,11 @@ void Escola::ImprimeBoletim(){
     }
     if(Turmas.at(indexturma).ImprimeAlunos()){
       while (TemLetra!=0)
-        { 
+        {
           cout<<"Entre com a matrícula do aluno que quer imprimir o boletim:";
           cin>>MatriculaString;
           TemLetra=0;
-          for (int i = 0; i < MatriculaString.size(); i++)
+          for (unsigned int i = 0; i < MatriculaString.size(); i++)
           {
             if(isalpha(MatriculaString[i])){
               TemLetra++;
@@ -440,11 +440,11 @@ void Escola::ImprimeAlunosDeTurma(){
       cout<<"----------------"<<endl;
     }
     while (TemLetra!=0)
-        { 
+        {
           cout<<"Entre com o codigo da turma que deseja imprimir os alunos:";
           cin>>TurmaString;
           TemLetra=0;
-          for (int i = 0; i < TurmaString.size(); i++)
+          for (unsigned int i = 0; i < TurmaString.size(); i++)
           {
             if(isalpha(TurmaString[i])){
               TemLetra++;
@@ -493,11 +493,11 @@ void Escola::ModificaProfessor(){
       cout<<"-----------------------------------------"<<endl;
     }
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com o numero do professor escolhido:";
       cin>>IndexString;
       TemLetra=0;
-      for (int i = 0; i < IndexString.size(); i++)
+      for (unsigned int i = 0; i < IndexString.size(); i++)
       {
         if(isalpha(IndexString[i])){
           TemLetra++;
@@ -525,13 +525,13 @@ void Escola::ModificaProfessor(){
     cout<<"Entre com a area do professor:";
     getline(cin,Area);
     //cout<<"Entre com o salário do professor:";
-    TemLetra=0;
+    TemLetra=-1;
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com o salario do professor:(Apenas numeros)";
       cin>>SalarioString;
       TemLetra=0;
-      for (int i = 0; i < SalarioString.size(); i++)
+      for (unsigned int i = 0; i < SalarioString.size(); i++)
       {
         if(isalpha(SalarioString[i])){
           TemLetra++;
@@ -568,13 +568,13 @@ void Escola::ModificaAluno(){
       cout<<"Endereco: "<<Alunos.at(i).Get_Endereco()<<endl;
       cout<<"------------------------------------"<<endl;
     }
-    
+
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Digite a matrícula do aluno que deseja modificar:";
       cin>>MatriculaString;
       TemLetra=0;
-      for (int i = 0; i < MatriculaString.size(); i++)
+      for (unsigned int i = 0; i < MatriculaString.size(); i++)
       {
         if(isalpha(MatriculaString[i])){
           TemLetra++;
@@ -584,7 +584,7 @@ void Escola::ModificaAluno(){
     ss << MatriculaString;
     ss >> Matricula;
     ss.clear();
-  
+
     for(unsigned int j=0;j<Alunos.size();j++){
       if(Alunos.at(j).GetMatricula() == Matricula){
         cin.ignore(1);
@@ -635,11 +635,11 @@ int Menu_Principal(){
   while(a!=1 && a!=2 && a!=3 && a!=4){
     //TemLetra=-1;
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com a opcao desejada:";
       cin>>aString;
       TemLetra=0;
-      for (int i = 0; i < aString.size(); i++)
+      for (unsigned int i = 0; i < aString.size(); i++)
       {
         if(isalpha(aString[i])){
           TemLetra++;
@@ -649,7 +649,7 @@ int Menu_Principal(){
   ss << aString;
   ss >> a;
   ss.clear();
-     
+
     if(a!=1 && a!=2 && a!=3 && a!=4){
       cout<<"Opção invalida!"<<endl;
       TemLetra=-1;
@@ -668,13 +668,13 @@ int Menu_Aluno(){
   cout<<"3 - Alterar cadastro de Aluno:"<<endl;
   cout<<"4 - Voltar ao menu anterior:"<<endl;
   while(b!=1 && b!=2 && b!=3 && b!=4){
-    
+
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
-      for (int i = 0; i < bString.size(); i++)
+      for (unsigned int i = 0; i < bString.size(); i++)
       {
         if(isalpha(bString[i])){
           TemLetra++;
@@ -702,13 +702,13 @@ int Menu_Professor(){
   cout<<"3 - Alterar cadastro de professor:"<<endl;
   cout<<"4 - Voltar ao menu anterior:"<<endl;
   while(b!=1 && b!=2 && b!=3 && b!=4){
-    
+
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
-      for (int i = 0; i < bString.size(); i++)
+      for (unsigned int i = 0; i < bString.size(); i++)
       {
         if(isalpha(bString[i])){
           TemLetra++;
@@ -740,13 +740,13 @@ int Menu_Turma(){
   cout<<"6 - Imprimir turmas:"<<endl;
   cout<<"7 - Voltar ao menu anterior:"<<endl;
   while(b!=1 && b!=2 && b!=3 && b!=4 && b!=5 && b!=6 && b!=7){
-    
+
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
-      for (int i = 0; i < bString.size(); i++)
+      for (unsigned int i = 0; i < bString.size(); i++)
       {
         if(isalpha(bString[i])){
           TemLetra++;
@@ -774,11 +774,11 @@ int Menu_Finalizar(){
   cout<<"\t2 - Nao"<<endl;
   while(b!=1 && b!=2){
     while (TemLetra!=0)
-    { 
+    {
       cout<<"Entre com a opcao desejada:";
       cin>>bString;
       TemLetra=0;
-      for (int i = 0; i < bString.size(); i++)
+      for (unsigned int i = 0; i < bString.size(); i++)
       {
         if(isalpha(bString[i])){
           TemLetra++;
