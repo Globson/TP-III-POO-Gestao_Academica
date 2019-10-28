@@ -5,9 +5,6 @@ void Notas::AdicionaNota(double Nota){
   if(Nota>=0){
   NotasAlunos.push_back(Nota);}
 }
-void Notas::ModificaNota(double NovaNota,int indexNota){
-  //fico devendo acabar esse, TENHO Q LER DOCUMENTACAO DA VECTOR
-}
 void Notas::ListaNotas(){
   if(NotasAlunos.size()>0){
   cout<<"--Inicio de notas do Aluno--"<<endl;

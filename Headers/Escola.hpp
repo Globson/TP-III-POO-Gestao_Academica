@@ -17,7 +17,7 @@ private:
   std::vector<Professor> Professores;
   std::vector<Aluno> Alunos;
   std::vector<Turma> Turmas;
-public:  //Nenhuma deve ter parametro, para poder ser totalmente interativo apartir desse nivel
+public:
   Escola();
   void AdicionaProfessor();
   void AdicionaAluno();

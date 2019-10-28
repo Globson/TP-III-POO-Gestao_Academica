@@ -11,7 +11,6 @@ private:
   double SalarioPHora;
 public:
   Professor(string Nome); //Vamos ter q mudar
-  //virtual ~Professor();
   void Set_Area(string area);
   void Set_Endereco(string endereco);
   bool Set_Salario(double Salario);
